@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Test from "./test";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    name: "Kamdev Kumar",
+    age: 20,
+    phoneNumber: "9638527410",
+  };
+
+  constructor(props) {
+    super(props);
+    this.setPhoneNumber = this.setPhoneNumber.bind(this);
+  }
+
+  setPhoneNumber(phoneNumber) {
+    console.log(this);
+    this.setState({ ...this.state, phoneNumber });
+  }
+
+  render() {
+    return <Test user={this.state} setPhoneNumber={this.setPhoneNumber} />;
+  }
 }
 
 export default App;
+
+
+
+
+//          index
+//            |
+//           App
+//            |
+//           div
+//          /   \
+//        test   test
